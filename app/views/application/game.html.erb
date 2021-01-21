@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mazee</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+    
+  </head>
+
+  <body>
+  <link rel="stylesheet" type="text/css" href="/maze.css">
+
+  <div id="maze_container">
+  <div id="maze">
+
+
+</div>
+
+</div>
+<div id="maze_data">
+<div id="maze_score"></div>
+<div id="maze_message"></div>
+
+</div>
+<div>
+  <a href="/"><button style="margin:20px 40%;width: 20%;" class="rules">Back to home</button></a><br>
+  <button style="margin:20px 40%;width: 20%;" onClick="window.location.reload();">Start new game</button>
+</div>
+<script src="/application.js"></script>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<script>
+
+  window.addEventListener("DOMContentLoaded", function(e) {
+    var maze = new MazeGod();
+/*  maze.setChildMode(); */
+  }, false);
+
+</script>
+  </body>
+</html>
+

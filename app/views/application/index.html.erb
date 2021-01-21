@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mazee</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+  </head>
+
+  <body>
+  <link rel="stylesheet" type="text/css" href="/mazing.css">
+<div class="info" style="display: none;">
+  <h3>The Rules Of the Game</h3><br>
+  <p>The game will start with the character being randomly dropped in one of the boss rooms</p>
+  <p>you must pick up the weapon in the room and walk into the boss</p>
+  <p>you will need to pick the correct action to beat the boss or you will lose points</p>
+  <p>when you beat the boss you will gain points and be able to leave the room</p>
+  <p>you are allowed to walk in and out the each of the boss rooms without hassle but once you pick up the weapon in the room you anger the monster. Only you or the monster is leaving alive</p>
+  <p>gold can be found around the map, why not make the princess happy!</p>
+  <p>when all the monsters are defeated you can enter the throne room in the middle of the map and save the princess.</p>
+  <p>Good Luck</p>
+</div>
+<div>
+  <button style="margin:20px 40%;width: 20%;" class="rules">How to play?</button><br>
+  <a href="/game"><button style="margin:20px 40%;width: 20%;">play</button></a>
+</div>
+
+
+
+<script src="/application.js"></script>
+<%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<script>
+
+$( ".rules" ).click(function() {
+  if ($( ".info" ).is(':visible') === false){
+  $( ".info" ).show();
+}
+  else{
+    $( ".info" ).hide();
+  }
+});
+
+</script>
+  </body>
+</html>
+
