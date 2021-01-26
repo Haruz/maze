@@ -21,7 +21,7 @@
    
   //var w = window.open('map.txt').toString('utf-8');
   //console.log(w);
-
+  console.log("pandas eat children");
   function readTextFile(file)
 {
     var rawFile = new XMLHttpRequest();
