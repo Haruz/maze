@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
- *{border: 1px solid pink}
 #maze_container {
   position: relative;
   display: inline-block;
