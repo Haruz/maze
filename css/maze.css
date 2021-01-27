@@ -69,7 +69,7 @@
   content: "\1F511";
 }
 #maze div div.dragon::after {
-  content: url(dragon.png);
+  content: url(img/dragon.png);
 }
 #maze div div.princess::after {
   content: url(princess.png);
