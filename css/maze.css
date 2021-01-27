@@ -72,10 +72,10 @@
   content: url(img/dragon.png);
 }
 #maze div div.princess::after {
-  content: url(/img/princess.png);
+  content: url(../img/princess.png);
 }
 #maze div div.vampire::after {
-  content: url(vampire.png);
+  content: url(../vampire.png);
 }
 #maze div div.cake::after {
   content: url(cake.png);
