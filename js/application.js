@@ -114,8 +114,12 @@ function MazeGod() {
   this.mazeOutputDiv.style.width = this.mazeContainer.scrollWidth + "px";
   this.setMessage("Pick up a weapon");
 
-
+  document.getElementById("up").addEventListener("click", this.charactermoveup.bind(this));
+  document.getElementById("down").addEventListener("click", this.charactermovedown.bind(this));
+  document.getElementById("left").addEventListener("click", this.charactermoveleft.bind(this));
+  document.getElementById("right").addEventListener("click", this.charactermoveright.bind(this));
   this.keyPressHandler = this.charactermove.bind(this);
+  
   document.addEventListener("keydown", this.keyPressHandler, false);
 }
 
@@ -127,7 +131,7 @@ MazeGod.prototype.setMessage = function(text) {
 MazeGod.prototype.heroTakeGold = function() {
   this.maze[this.heroPos].classList.remove("gold");
   this.heroScore += 10;
-  this.setMessage("yay, money!");
+  this.setMessage("yay, gold!");
 };
 
 MazeGod.prototype.heroTakeKey = function() {
@@ -146,7 +150,7 @@ MazeGod.prototype.heroTakeSword = function() {
   this.heroHasSword = true;
   this.heroScore += 20;
   this.mazeScore.classList.add("has-sword");
-  this.setMessage("you have the sword of ziggaro!");
+  this.setMessage("you got the Narnia sword!");
 };
 
 MazeGod.prototype.heroTakeSpoon = function() {
@@ -177,25 +181,25 @@ MazeGod.prototype.heroKillDragon = function() {
   this.maze[this.heroPos].classList.remove("dragon");
   this.redDoor = true;
   this.heroScore += 40;
-  this.setMessage("you killed the dragon!");
+  this.setMessage("you defeated the dragon!");
 };
 MazeGod.prototype.heroKillCake = function() {
   this.maze[this.heroPos].classList.remove("cake");
   this.purpleDoor = true;
   this.heroScore += 40;
-  this.setMessage("you killed the cake!");
+  this.setMessage("The cake is always a lie!");
 };
 MazeGod.prototype.heroKillVampire = function() {
   this.maze[this.heroPos].classList.remove("vampire");
   this.greenDoor = true;
   this.heroScore += 40;
-  this.setMessage("you killed the vampie!");
+  this.setMessage("you defeated the vampie!");
 };
 MazeGod.prototype.heroKillBear = function() {
   this.maze[this.heroPos].classList.remove("bear");
   this.blueDoor = true;
   this.heroScore += 40;
-  this.setMessage("you killed the bear!");
+  this.setMessage("Bear is deported!");
 };
 
 MazeGod.prototype.gameOver = function(text) {
@@ -221,7 +225,7 @@ MazeGod.prototype.tryMoveHero = function(pos) {
       this.maze[pos].classList.add("hero");
       this.heroPos = pos;
       var questions = [
-  ["How will you fight the dragon\n1) slash it's head off\n2) stab it in the heart\n3) slap it with the sword", 1]];
+  ["How will you fight the dragon\n1) slash it's head off\n2) stab it in the heart\n3) throw sword", 1]];
   var answer;
 function print(message) {
    document.getElementById('output').innerHTML = message;
@@ -254,7 +258,7 @@ for (var i = 0; i < questions.length; i += 1) {
             } 
   else {
     this.heroScore = Math.max(this.heroScore - 5, 0);
-      this.setMessage("the dragon slapped me!");
+      this.setMessage("the dragon set you on fire!");
     }
     return;
   }
@@ -266,7 +270,7 @@ for (var i = 0; i < questions.length; i += 1) {
       this.maze[pos].classList.add("hero");
       this.heroPos = pos;
       var questions = [
-  ["How will you fight the bear\n1) cut it open\n2) cut and eye\n3) put the knife down it's just a stuffed animal", 3]];
+  ["How will you fight the bear\n1) slash it\n2) throw knife\n3) ask for visa", 3]];
   var answer;
 function print(message) {
    document.getElementById('output').innerHTML = message;
@@ -311,7 +315,7 @@ for (var i = 0; i < questions.length; i += 1) {
       this.maze[pos].classList.add("hero");
       this.heroPos = pos;
       var questions = [
-  ["How will you fight the vampie\n1) shoot with normal bullet\n2) give it a hug\n3) shoot with silver bullet", 3]];
+  ["How will you fight the vampire\n1) shoot with normal bullet\n2) give it a hug\n3) shoot with silver bullet", 3]];
   var answer;
 function print(message) {
    document.getElementById('output').innerHTML = message;
@@ -344,7 +348,7 @@ for (var i = 0; i < questions.length; i += 1) {
             } 
   else {
     this.heroScore = Math.max(this.heroScore - 5, 0);
-      this.setMessage("vampire backhanded you!");
+      this.setMessage("vampire bit you!");
     }
     return;
   }
@@ -389,7 +393,7 @@ for (var i = 0; i < questions.length; i += 1) {
             } 
   else {
     this.heroScore = Math.max(this.heroScore - 5, 0);
-      this.setMessage("the cake threw sprinkles!");
+      this.setMessage("the cake denounced you!");
     }
     return;
   }
@@ -410,11 +414,12 @@ if(nextStep.match(/red-door/)) {
     return;
   }
 else if(this.heroHasSword && this.redDoor === false){
-    this.setMessage("The dragon will not let you leave now! slay it!");
+    this.setMessage("Dragon must be defeated!");
     } else {
-      this.setMessage("damn the key is in the dragon!");
+      this.setMessage("Dragon must be defeated!");
     }
     }
+    this.setMessage("Dragon must be defeated!");
     return;
   }
 
@@ -433,11 +438,12 @@ else if(this.heroHasSword && this.redDoor === false){
     return;
   }
 else if(this.heroHasGun && this.greenDoor === false){
-    this.setMessage("The vampire is looking at you!");
+    this.setMessage("Vampire must be defeated!");
     } else {
-      this.setMessage("damn the key is in the vampire!");
+      this.setMessage("Vampire must be defeated!");
     }
     }
+       this.setMessage("Vampire must be defeated!");
     return;
   }
       if(nextStep.match(/blue-door/)) {
@@ -455,11 +461,12 @@ else if(this.heroHasGun && this.greenDoor === false){
     return;
   }
 else if(this.heroHasKnife && this.blueDoor === false){
-    this.setMessage("afraid of a bear??!");
+    this.setMessage("Bear must be defeated!");
     } else {
-      this.setMessage("damn the key is in the bear!");
+      this.setMessage("Bear must be defeated!");
     }
     }
+          this.setMessage("Bear must be defeated!");
     return;
   }
     if(nextStep.match(/purple-door/)) {
@@ -477,13 +484,14 @@ else if(this.heroHasKnife && this.blueDoor === false){
     return;
   }
 else if(this.heroHasSpoon && this.purpleDoor === false){
-    this.setMessage("the cake will stop you!");
+    this.setMessage("Cake must be defeated!");
     } else {
-      this.setMessage("damn the key is in the cake!");
+      this.setMessage("Cake must be defeated!");
       //console.log(this.heroHasSpoon);
       console.log(this.purpleDoor);
     }
     }
+        this.setMessage("Cake must be defeated!");
     return;
   }
   if(nextStep.match(/mega-door/)) {
@@ -494,7 +502,7 @@ else if(this.heroHasSpoon && this.purpleDoor === false){
       this.heroPos = pos;
     return;
   }else {
-    this.setMessage("you need to beat all the monsters first!");
+    this.setMessage("Defeat all the monsters!");
     return;
     }
   }
@@ -573,6 +581,40 @@ MazeGod.prototype.charactermove = function(e) {
       return;
 
   }
+  this.tryMoveHero(tryPos);
+  e.preventDefault();
+};
+
+MazeGod.prototype.charactermoveup = function(e) {
+  var tryPos = new Position(this.heroPos.x, this.heroPos.y);
+
+    tryPos.x--;
+  this.tryMoveHero(tryPos);
+  e.preventDefault();
+};
+
+MazeGod.prototype.charactermovedown = function(e) {
+  var tryPos = new Position(this.heroPos.x, this.heroPos.y);
+
+    tryPos.x++;
+  this.tryMoveHero(tryPos);
+  e.preventDefault();
+};
+
+MazeGod.prototype.charactermoveleft = function(e) {
+  var tryPos = new Position(this.heroPos.x, this.heroPos.y);
+
+    this.mazeContainer.classList.remove("face-right");
+      tryPos.y--;
+  this.tryMoveHero(tryPos);
+  e.preventDefault();
+};
+
+MazeGod.prototype.charactermoveright = function(e) {
+  var tryPos = new Position(this.heroPos.x, this.heroPos.y);
+
+    this.mazeContainer.classList.add("face-right");
+      tryPos.y++;
   this.tryMoveHero(tryPos);
   e.preventDefault();
 };
