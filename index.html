@@ -5,21 +5,62 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
-  <link rel="stylesheet" type="text/css" href="/mazing.css">
+  <link rel="stylesheet" type="text/css" href="css/maze.css">
+      <style>
+          .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+          h3{
+              margin-top:1%;
+              margin-bottom:1%;
+          }
+          .info{
+                  font-size: 2em;
+              }
+          .how{background-color:#008CBA;}
+          .play{background-color: #4CAF50;}
+          .homeb{
+              font-size: 4em;
+              margin:20px 40%;width: 20%;
+              width:40%;
+              margin: 20px 30%;
+              border: none;
+              color: white;
+              padding: 15px 32px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              border-radius: 5px;
+          }
+          @media only screen and (max-width: 600px) {
+              .homeb{
+                font-size: 2em;  
+          }
+              .info{
+                  font-size: 3em;
+              }
+              @media only screen and (max-width: 400px) {
+              .homeb{
+                font-size: 1em;  
+          }
+      </style>
 <div class="info" style="display: none;">
-  <h3>The Rules Of the Game</h3><br>
-  <p>The game will start with the character being randomly dropped in one of the boss rooms</p>
-  <p>you must pick up the weapon in the room and walk into the boss</p>
-  <p>you will need to pick the correct action to beat the boss or you will lose points</p>
-  <p>when you beat the boss you will gain points and be able to leave the room</p>
-  <p>you are allowed to walk in and out the each of the boss rooms without hassle but once you pick up the weapon in the room you anger the monster. Only you or the monster is leaving alive</p>
-  <p>gold can be found around the map, why not make the princess happy!</p>
-  <p>when all the monsters are defeated you can enter the throne room in the middle of the map and save the princess.</p>
-  <p>Good Luck</p>
+  <h3>-The Rules Of The Game-</h3><br>
+  <p>-You must pick up weapons and walk into each monster</p><br><br>
+  <p>-You must enter the correct number to defeat the monster or you will lose points</p><br><br>
+  <p>-If a weapon is picked up the monster must be defeated to leave the room</p><br><br>
+  <p>-Picking up gold gives you points</p><br><br>
+  <p>-When all the monsters are defeated you may enter the throne room at the centre of the map and save the princess</p>
 </div>
 <div>
-  <button style="margin:20px 40%;width: 20%;" class="rules">How to play?</button><br>
-  <a href="https://haruz.github.io/maze/game"><button style="margin:20px 40%;width: 20%;">play</button></a>
+  <button class="rules homeb how">How to play?</button><br>
+  <a href="/game.html"><button class="homeb play">play</button></a>
 </div>
 
 
@@ -40,4 +81,3 @@ $( ".rules" ).click(function() {
 </script>
   </body>
 </html>
-
