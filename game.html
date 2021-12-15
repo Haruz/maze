@@ -14,7 +14,7 @@
   box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
 }
 #maze {
-  background-color: pink;
+  background-color: antiquewhite;
 
   background-size: 8em 8em;
 }
@@ -49,7 +49,7 @@
   transform: scale(-1, 1);
 }
 #maze div div.wall, #maze div div.gold.wall, #maze div div.door.exit {
-  background-color: grey;
+  background-color: black;
 
   background-size: 0.5em 0.5em;
 }
@@ -90,19 +90,19 @@
   content: url(img/spoon.png); 
 }
 #maze div div.red-door {
-  background-color:red;
+  background-color:slateblue;
 }
 #maze div div.blue-door {
-  background-color:blue;
+  background-color:slateblue;
 }
 #maze div div.green-door {
-  background-color:green;
+  background-color:slateblue;
 }
 #maze div div.purple-door {
-  background-color:purple;
+  background-color:slateblue;
 }
 #maze div div.mega-door {
-  background-color:black;
+  background-color:slateblue;
 }
 #maze div.sentinel:nth-of-type(3n)::after {
   content: "\1F511";
@@ -120,18 +120,19 @@
 
 #maze_data {
   display: flex;
-  margin: 0 auto;
+  margin: 5px auto;
   color: purple;
+  font-size: 2em;
 }
 #maze_score, #maze_message {
-  font-family: fantasy;
+  font-family: monospace;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.5em;
   color: purple;
 }
 #maze_score {
   flex: 1;
-  text-align: left;
+  text-align: center;
 }
 #maze_score::before {
   content: "Score: ";
@@ -141,9 +142,23 @@
 }
 #maze_message {
   flex: 3;
-  text-align: right;
+  text-align: center;
 }
-
+.how{background-color:slateblue;}
+          .play{background-color: #4CAF50;}
+          .homeb{
+              font-size: 2em;
+              margin:20px 40%;width: 20%;
+              width:40%;
+              margin: 20px 30%;
+              border: none;
+              color: white;
+              padding: 15px 32px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              border-radius: 5px;
+          }
 #maze.finished::after {
   position: absolute;
   top: 0;
@@ -151,7 +166,7 @@
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.4);
-  content: "You saved the princess and escaped the maze!!!!";
+  content: "You saved the princess!!!!";
   line-height: 150px;
   text-align: center;
   text-transform: uppercase;
@@ -162,13 +177,82 @@
   z-index: 10;
 }
 .info{
-  background-color: greenyellow;
+  background-color: ghostwhite;
   text-align: center;
 }
 .info p {
   display: inline-block;
   margin:0 10%;
 }
+        #up{
+    width: 8em;
+    margin: auto;
+    display: block;
+    text-align: center;
+    height: 8em;
+    background-image: url(img/up.png);
+    background-repeat: round;
+        }
+        #horizontal{
+    width: 100%;
+    margin: auto;
+    display: block;
+    text-align: center;
+        }
+        #left{
+    width: 8em;
+    
+    display: inline-block;
+    text-align: center;
+    height: 8em;
+    background-image: url(img/left.png);
+    background-repeat: round;
+        }
+        #right{
+    width: 8em;
+    
+    display: inline-block;
+    text-align: center;
+    height: 8em;
+    background-image: url(img/right.png);
+    background-repeat: round;
+        }
+        #down{
+    width: 8em;
+    margin: auto;
+    display: block;
+    text-align: center;
+    height: 8em;
+    background-image: url(img/down.png);
+    background-repeat: round;
+        }
+        .key{
+            margin: 1em 4em;
+        
+        }
+        .controll{
+            margin: 4em 0;
+        }
+        @media only screen and (min-width: 1050px) {
+            
+              #maze div div {
+                    position: relative;
+                    width: 1.5em;
+                    height: 1.5em;
+                            }
+            #maze div div:nth-child(odd) {
+                    width: 1.5em;
+                            }
+            #maze div:nth-child(odd) div {
+                    height: 1.5em;
+                            }
+            .controll{
+                display: none;
+            }
+            body{
+               background-color:  whitesmoke;
+            }
+          }
     </style>
 <!--   <link rel="stylesheet" type="text/css" href="/maze.css"> -->
 
@@ -184,9 +268,14 @@
 <div id="maze_message"></div>
 
 </div>
+      <div class="controll" id="test">
+          <div id="up" class=""><div></div></div>
+          <div id="horizontal" ><div id="left" class="key"></div><div id="right" class="key"></div></div>
+          <div id="down" class=""><div></div></div>
+      </div>
 <div>
-  <a href="https://haruz.github.io/maze/"><button style="margin:20px 40%;width: 20%;" class="rules">Back to home</button></a><br>
-  <button style="margin:20px 40%;width: 20%;" onClick="window.location.reload();">Start new game</button>
+  <a href="/index.html"><button style="margin:20px 40%;width: 20%;" class="rules homeb how">Back to home</button></a><br>
+  <button class='homeb play' onClick="window.location.reload();">Start new game</button>
 </div>
 <script src="js/application.js"></script>
 
@@ -200,4 +289,3 @@
 </script>
   </body>
 </html>
-
